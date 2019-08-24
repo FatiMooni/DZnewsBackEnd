@@ -44,7 +44,7 @@ exports.create = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-    Note.findById(req.params.id)
+    Article.findById(req.params.id)
     .then(article => {
         if(!article) {
             return res.status(404).send({
@@ -59,7 +59,28 @@ exports.findOne = (req, res) => {
             });                
         }
         return res.status(500).send({
-            message: "Error retrieving note with id " + req.params.id
+            message: "Error retrieving article with id " + req.params.id
+        });
+    });
+};
+
+exports.delete = (req, res) => {
+    Article.findByIdAndRemove(req.params.id)
+    .then(article => {
+        if(!article) {
+            return res.status(404).send({
+                message: "article not found with id " + req.params.id
+            });
+        }
+        res.send({message: "article deleted successfully!"});
+    }).catch(err => {
+        if(err.kind === 'ObjectId' || err.name === 'NotFound') {
+            return res.status(404).send({
+                message: "article not found with id " + req.params.id
+            });                
+        }
+        return res.status(500).send({
+            message: "Could not delete article with id " + req.params.id
         });
     });
 };
