@@ -30,12 +30,12 @@ module.exports = (app) => {
     });
 
     // Save Note in the database
-    note.save()
+    article.save()
     .then(data => {
         res.send(data);
     }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while creating the Note."
+            message: err.message || "Some error occurred while creating the article."
         });
     });
 };
