@@ -8,5 +8,11 @@ module.exports = (app) => {
 
     //@post new article
     app.post('/articles', articles.create)
+
+   //@get one article
+   app.get('/articles/:id', articles.findOne)
+
+   //@delete one article
+   app.delete('/articles/:id', articles.delete)
     
 }

@@ -15,9 +15,9 @@ exports.findAll = (req, res) => {
 // Create and Save a new article
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.content) {
+    if(!req.body.uri) {
         return res.status(400).send({
-            message: "article content can not be empty"
+            message: "article uri can not be empty"
         });
     }
 
@@ -39,6 +39,27 @@ exports.create = (req, res) => {
     }).catch(err => {
         res.status(500).send({
             message: err.message || "Some error occurred while creating the article."
+        });
+    });
+};
+
+exports.findOne = (req, res) => {
+    Note.findById(req.params.id)
+    .then(article => {
+        if(!article) {
+            return res.status(404).send({
+                message: "Article not found with id " + req.params.id
+            });            
+        }
+        res.send(article);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "Article not found with id " + req.params.id
+            });                
+        }
+        return res.status(500).send({
+            message: "Error retrieving note with id " + req.params.id
         });
     });
 };
