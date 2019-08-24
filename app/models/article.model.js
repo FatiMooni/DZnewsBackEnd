@@ -13,4 +13,4 @@ const ArticleSchema = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Article', ArticleSchema);
+module.exports = mongoose.model('article', ArticleSchema);
