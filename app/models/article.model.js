@@ -8,7 +8,7 @@ const ArticleSchema = mongoose.Schema({
     author : String,
     date : String,
     uri : String,
-    content: String
+    img : String
 }, {
     timestamps: true
 });
