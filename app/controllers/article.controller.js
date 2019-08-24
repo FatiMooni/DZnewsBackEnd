@@ -22,7 +22,7 @@ exports.create = (req, res) => {
     }
 
     // Create a Note
-    const article = new article({
+    const article = new Article({
         id : req.body.id,
         title: req.body.title || "Untitled Article", 
         theme : req.body.theme,
