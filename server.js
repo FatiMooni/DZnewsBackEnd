@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+require('dotenv').config()
+
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
@@ -24,17 +26,17 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to DZ-News API application. Find your latest news"});
 });
 
-
+const port = process.env.PORT || 3000;
 
 // listen for requests
-app.listen(3000, () => { 
-    console.log("Server is listening on port 3000");
+app.listen(port, () => { 
+    console.log("Server is listening on port " + $port);
 });
 
 mongoose.Promise = global.Promise
 
 //Connect to mongoDB
-mongoose.connect(dbConfig.url , {
+mongoose.connect(process.env.MONGODB_URI||dbConfig.url , {
   useNewUrlParser : true}).then(() => {
      console.log("connected to database succesfully");
   }).catch (err => {
