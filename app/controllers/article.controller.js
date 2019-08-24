@@ -23,14 +23,13 @@ exports.create = (req, res) => {
 
     // Create a Note
     const article = new Article({
-        id : req.body.id,
         title: req.body.title || "Untitled Article", 
         theme : req.body.theme,
         resume : req.body.resume,
         author : req.body.author,
         date : req.body.date,
         uri : req.body.uri,
-        content: req.body.content
+        img : req.body.img
     });
 
     // Save Note in the database
