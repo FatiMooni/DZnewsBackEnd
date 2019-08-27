@@ -20,6 +20,7 @@ app.use(bodyParser.json())
 
 //add the routes
 require('./app/routes/article.routes.js')(app);
+require('./app/routes/category.routes.js')(app);
 
 // define a simple route
 app.get('/', (req, res) => {
