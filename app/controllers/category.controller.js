@@ -23,7 +23,6 @@ exports.create = (req, res) => {
     // Create a Category
     const category = new Category({
         title: req.body.title, 
-        img : req.body.img,
         feeds : req.body.feeds
     });
 
