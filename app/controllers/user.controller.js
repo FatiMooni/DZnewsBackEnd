@@ -14,7 +14,7 @@ exports.create = (req, res) => {
         userID = req.body.userID
     });
 
-User.findById(req.body.userID)
+User.findById(user.userID)
     .then( userFound => {
         if(!userFound) {
               // Save the user if not found
