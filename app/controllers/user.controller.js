@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         userID : req.body.userID
     });
 
-User.find(user.userID)
+User.find({userID : user.userID})
     .then( userFound => {
         if(!userFound) {
               // Save the user if not found
@@ -32,7 +32,12 @@ User.find(user.userID)
                 message: "user with id " + req.body.userID + "already exist"
             });
         }
-    });
+    }).catch( err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while creating the user."
+        });
+    }
+        );
    
 };
 
