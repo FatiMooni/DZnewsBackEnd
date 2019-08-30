@@ -16,10 +16,10 @@ module.exports = (app) => {
    app.delete('/articles/:id', articles.delete)
 
    //@get saved articles of a user
-   app.get('users/:id/articles' , articles.findAllForUser)
+   app.get('/users/:id/articles' , articles.findAllForUser)
 
    //@post saved articles of a user
-   app.post('users/:id/articles' , articles.addArticle)
+   app.post('/users/:id/articles' , articles.addArticle)
 
 
     
