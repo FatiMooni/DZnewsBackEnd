@@ -15,7 +15,14 @@ exports.create = (req, res) => {
         userID : req.body.userID
     });
 
-User.findById(user.userID)
+User.findAndModify({
+    query : req,
+    update: {
+        $setOnInsert: { userID : req.body.userID }
+      },
+      new: true,   // return new doc if one is upserted
+      upsert: true // insert the document if it does not exist
+})
     .then( userFound => {
         if(!userFound) {
               // Save the user if not found
