@@ -28,9 +28,7 @@ User.findOne({userID : req.body.userID})
                     });
                 });
         } else {
-            return res.status(200).send({
-                message: "user with id " + req.body.userID + " already exist " + userFound
-            });
+            return res.status(200).send(userFound);
         }
     }).catch( err => {
         res.status(500).send({
