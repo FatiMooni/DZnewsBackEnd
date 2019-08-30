@@ -2,6 +2,7 @@ const User = require('../models/user.model.js')
 
 // Create and Save a new article
 exports.create = (req, res) => {
+
     // Validate request
     if(!req.body.userID) {
         return res.status(400).send({
@@ -11,7 +12,7 @@ exports.create = (req, res) => {
 
     // Create a Note
     const user = new User({
-        userID = req.body.userID
+        userID : req.body.userID
     });
 
 User.findById(user.userID)
