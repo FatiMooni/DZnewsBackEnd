@@ -90,7 +90,7 @@ exports.delete = (req, res) => {
 exports.addArticle = (req, res) => {
     
     //verify if user exist
-    Users.findOne({userID : req.path.id})
+    Users.findOne({userID : req.params.id})
       .then( user => {
          // Validate request
          if(user){
