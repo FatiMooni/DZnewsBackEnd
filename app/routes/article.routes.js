@@ -19,7 +19,7 @@ module.exports = (app) => {
    app.get('users/:id/articles' , articles.findAllForUser)
 
    //@post saved articles of a user
-   app.get('users/:id/articles' , articles.addArticle)
+   app.post('users/:id/articles' , articles.addArticle)
 
 
     
