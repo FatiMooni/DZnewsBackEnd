@@ -93,6 +93,7 @@ exports.addArticle = (req, res) => {
     Users.findOne({userID : req.params.id})
       .then( user => {
          // Validate request
+         if(user){
     if(!req.body.uri) {
         return res.status(400).send({
             message: "article uri can not be empty"
@@ -120,10 +121,14 @@ exports.addArticle = (req, res) => {
             message: err.message || "Some error occurred while creating the article."
         });
     });
-      
-}).catch(err => {
+} else {
     return res.status(404).send({
         message: "user with id " + req.params.id + " not found"
+    });
+}
+}).catch(err => {
+    return res.status(404).send({
+        message: "user with id " + req.params.id + " not found" + err
     });  
 });
     
