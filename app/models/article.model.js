@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const ArticleSchema = mongoose.Schema({
+    userID : String,
     title: String,
     theme : String,
     resume : String,
