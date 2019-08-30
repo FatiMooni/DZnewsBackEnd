@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
-    userID: Schema.Types.ObjectId,
+    userID: String,
 }, {
     timestamps: true
 });
