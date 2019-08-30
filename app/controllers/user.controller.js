@@ -1,5 +1,15 @@
 const User = require('../models/user.model.js')
 
+exports.findAll = (req,res) => {
+        User.find()
+    .then(users => {
+        res.send(users);
+    }).catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving articles."
+        });
+    });
+}
 // Create and Save a new article
 exports.create = (req, res) => {
 

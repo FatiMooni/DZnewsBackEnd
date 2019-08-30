@@ -5,4 +5,6 @@ module.exports = (app) => {
 
     //@post new article
     app.post('/users', users.create)
+
+    app.get('/users' , users.findAll)
 }
