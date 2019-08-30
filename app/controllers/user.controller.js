@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     }
 
 
-User.find({userID : req.body.userID})
+User.findOne({userID : req.body.userID})
     .then( userFound => {
         if(!userFound) {
                  // Create a Note
@@ -29,7 +29,7 @@ User.find({userID : req.body.userID})
                 });
         } else {
             return res.status(200).send({
-                message: "user with id " + req.body.userID + "already exist" + userFound
+                message: "user with id " + req.body.userID + " already exist " + userFound
             });
         }
     }).catch( err => {
