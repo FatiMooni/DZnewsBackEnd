@@ -10,14 +10,14 @@ exports.create = (req, res) => {
         });
     }
 
-    // Create a Note
-    const user = new User({
-        userID : req.body.userID
-    });
 
-User.find({userID : user.userID})
+User.find({userID : req.body.userID})
     .then( userFound => {
         if(!userFound) {
+                 // Create a Note
+                const user = new User({
+                    userID : req.body.userID
+                });
               // Save the user if not found
                 user.save()
                 .then(data => {
@@ -29,7 +29,7 @@ User.find({userID : user.userID})
                 });
         } else {
             return res.status(200).send({
-                message: "user with id " + req.body.userID + "already exist"
+                message: "user with id " + req.body.userID + "already exist" + userFound
             });
         }
     }).catch( err => {
