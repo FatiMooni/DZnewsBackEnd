@@ -13,7 +13,7 @@ module.exports = (app) => {
    app.get('/articles/:id', articles.findOne)
 
    //@delete one article
-   app.delete('/articles/:uri', articles.delete)
+   app.delete('/users/:id/articles/:article_id', articles.delete)
 
    //@get saved articles of a user
    app.get('/users/:id/articles' , articles.findAllForUser)

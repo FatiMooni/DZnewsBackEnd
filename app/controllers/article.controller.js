@@ -65,7 +65,7 @@ exports.findOne = (req, res) => {
 
 exports.delete = (req, res) => {
     //User.   req.params.id
-    Article.findOneAndRemove({categoryID :req.params.uri})
+    Article.findOneAndRemove({ articleID : req.params.article_id})
     .then(article => {
         if(!article) {
             return res.status(404).send({
@@ -103,12 +103,9 @@ exports.addArticle = (req, res) => {
     const article = new Article({
         userID : user.userID,
         title: req.body.title || "Untitled Article", 
-        theme : req.body.theme,
-        resume : req.body.resume,
-        author : req.body.author,
-        date : req.body.date,
-        uri : req.body.uri,
-        img : req.body.img
+        articleID : req.body.articleID,
+        categoryID :req.body.categoryID,
+        uri : req.body.uri
     });
 
     // Save Note in the database
