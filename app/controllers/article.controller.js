@@ -27,8 +27,7 @@ exports.create = (req, res) => {
         title: req.body.title || "Untitled Article", 
         articleID : req.body.articleID,
         categoryID :req.body.categoryID,
-        uri : req.body.uri,
-        img : req.body.img
+        uri : req.body.uri
     });
 
     // Save Note in the database
