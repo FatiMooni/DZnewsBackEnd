@@ -105,7 +105,9 @@ exports.addArticle = (req, res) => {
         title: req.body.title || "Untitled Article", 
         articleID : req.body.articleID,
         categoryID :req.body.categoryID,
-        uri : req.body.uri
+        uri : req.body.uri,
+        publicationDate : req.body.publicationDate, 
+        author : req.body.author
     });
 
     // Save Note in the database

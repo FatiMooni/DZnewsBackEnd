@@ -6,6 +6,8 @@ const ArticleSchema = mongoose.Schema({
     title: String,
     categoryID : String,
     uri : String,
+    publicationDate : String,
+    author : String
 }, {
     timestamps: true
 });
