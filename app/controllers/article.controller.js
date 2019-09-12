@@ -105,6 +105,7 @@ exports.addArticle = (req, res) => {
         title: req.body.title || "Untitled Article", 
         articleID : req.body.articleID,
         categoryID :req.body.categoryID,
+        categoryOrigin : req.body.categoryOrigin,
         uri : req.body.uri,
         publicationDate : req.body.publicationDate, 
         author : req.body.author
