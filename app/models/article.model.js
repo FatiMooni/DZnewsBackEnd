@@ -4,7 +4,7 @@ const ArticleSchema = mongoose.Schema({
     userID : String,
     articleID : Sreing ,
     title: String,
-    categoryId : String,
+    categoryID : String,
     uri : String,
     img : String
 }, {
