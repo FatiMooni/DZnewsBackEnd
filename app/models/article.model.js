@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 const ArticleSchema = mongoose.Schema({
     userID : String,
+    articleID : Sreing ,
     title: String,
-    theme : String,
-    resume : String,
-    author : String,
-    date : String,
+    categoryId : String,
     uri : String,
     img : String
 }, {

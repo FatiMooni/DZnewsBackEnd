@@ -25,10 +25,8 @@ exports.create = (req, res) => {
     // Create a Note
     const article = new Article({
         title: req.body.title || "Untitled Article", 
-        theme : req.body.theme,
-        resume : req.body.resume,
-        author : req.body.author,
-        date : req.body.date,
+        articleID : req.body.articleID,
+        categoryID :req.body.categoryID,
         uri : req.body.uri,
         img : req.body.img
     });
