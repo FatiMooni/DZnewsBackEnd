@@ -65,7 +65,7 @@ exports.findOne = (req, res) => {
 
 exports.delete = (req, res) => {
     //User.   req.params.id
-    Article.findAndRemove({uri :req.params.id})
+    Article.findOneAndRemove({uri :req.params.uri})
     .then(article => {
         if(!article) {
             return res.status(404).send({
