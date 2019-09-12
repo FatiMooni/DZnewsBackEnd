@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const ArticleSchema = mongoose.Schema({
     userID : String,
-    articleID : Sreing ,
+    articleID : String ,
     title: String,
     categoryID : String,
     uri : String,
