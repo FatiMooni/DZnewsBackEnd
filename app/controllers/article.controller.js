@@ -1,5 +1,6 @@
 const Article = require('../models/article.model.js')
 const Users = require('../models/user.model.js')
+const User = require('../models/user.model.js')
 
 // Retrieve and return all articles from the database.
 exports.findAll = (req, res) => {
@@ -63,22 +64,23 @@ exports.findOne = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Article.findByIdAndRemove(req.params.id)
+    //User.   req.params.id
+    Article.findAndRemove({uri:req.params.uri})
     .then(article => {
         if(!article) {
             return res.status(404).send({
-                message: "article not found with id " + req.params.id
+                message: "article not found with uri " + req.params.uri
             });
         }
         res.send({message: "article deleted successfully!"});
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({
-                message: "article not found with id " + req.params.id
+                message: "article not found with uri " + req.params.uri
             });                
         }
         return res.status(500).send({
-            message: "Could not delete article with id " + req.params.id
+            message: "Could not delete article with uri " + req.params.uri
         });
     });
 };
